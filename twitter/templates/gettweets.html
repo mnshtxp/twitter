@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title  %}
+Tweets
+{% if message %}
+{{ message }}
+{% endif %}
+{% endblock  %}
+
+{% block lead  %}
+Type the username that you want to see 
+{% endblock  %}
+
+{% block main_body  %}
+To see tweets for the user, press the Add button
+
+{% if data %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">tweet</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for data in data %}
+    <tr>
+      <td scope="row">{{ data }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+
+<form method="POST" action="/gettweets">
+  <input name="username" class="form-control" type="text" placeholder="Username">
+  <input type="submit" class="btn btn-primary" value="View" />
+</form>
+{% endblock  %}
+

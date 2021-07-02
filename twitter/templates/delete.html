@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+
+{% block title  %}
+Basic Twit Application
+{% endblock  %}
+
+{% block lead  %}
+Post and share Twiter Users' tweets
+{% endblock  %}
+
+
+{% block main_body  %}
+Welcome!
+{% if data %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Username</th>
+      <th scope="col">Full_name</th>
+      <th scope="col">Followers</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for tweet in data %}
+    <tr>
+      <th scope="row">{{ tweet.id }}</th>
+      <td>{{ tweet.username }}</td>
+      <td>{{ tweet.full_name }}</td>
+      <td>{{ tweet.followers }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+{% endblock  %}
