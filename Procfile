@@ -1,1 +1,1 @@
-web: gunicorn 'basic_twit_app:create_app()'
+web: gunicorn 'twitter:create_app()'
